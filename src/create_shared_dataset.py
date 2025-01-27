@@ -25,7 +25,7 @@ def create_csv():
     #Merge with customer information
     tr_final = pd.merge(tr_merged, cst,  how='left', left_on=['cust_id'], 
     right_on = ['customer_Id'])
-    tr_final['tran_date'] =pd.to_datetime(tr_final.tran_date)
+    tr_final['tran_date'] =pd.to_datetime(tr_final.tran_date, format="%m/%d/%Y", errors='coerce')
     tr_final = tr_final.drop(columns=['customer_Id', 'prod_sub_cat_code'])
     tr_final = tr_final.sort_values(by=["tran_date"])
     tr_final.head()
