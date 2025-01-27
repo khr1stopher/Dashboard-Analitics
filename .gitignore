@@ -1,5 +1,6 @@
 ### Node
 venv
+__pycache__
 # Logs
 logs
 *.log
